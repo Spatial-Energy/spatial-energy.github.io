@@ -1,0 +1,3 @@
+# Spatial Energy
+
+static page
