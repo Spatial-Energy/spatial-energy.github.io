@@ -20,6 +20,24 @@
             p {
                 margin-top: 0.2em;
             }
+            a {
+                color: #a8f7ed;
+                padding: 0 2px;
+            }
+            a:hover {
+                color: #01041b;
+                background-color: #a8f7ed;
+                text-decoration: none;
+            }
+            ul {
+                position: relative;
+                list-style: none;
+            }
+            li::before {
+                content: "\2192";
+                position: absolute;
+                left: 0;
+            }
             .center {
                 display: flex;
                 justify-content: center;
@@ -40,7 +58,11 @@
         <div class="center">
             <div class="content">
                 <h1>Spatial Energy</h1>
-                <p>coming soon</p>
+                <p>please check these links:</p>
+                <ul>
+                    <li>our product <a href="https://energyopenpiazza.io/">Energy Open Piazza</a></li>
+                    <li>our partner company <a href="https://u9t.co.uk/">UNIT9 / U9T</a></li>
+                </ul>
             </div>
         </div>
     </body>
