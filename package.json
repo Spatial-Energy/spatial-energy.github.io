@@ -17,7 +17,6 @@
     "posttest": "yarn run lint"
   },
   "dependencies": {
-    "gsap": "./gsap-bonus.tgz",
     "lodash": "^4.17.21",
     "next": "12.2.5",
     "react": "18.2.0",
@@ -25,7 +24,6 @@
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
-    "@types/gsap": "^3.0.0",
     "@types/lodash": "^4.14.184",
     "@types/node": "18.7.9",
     "@types/react": "18.0.17",
