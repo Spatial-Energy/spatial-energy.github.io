@@ -7,7 +7,7 @@ type MenuProps = {
 
 const Logo = ({ ...props }: MenuProps) => {
 return (
-    <Styled.Wrapper href="/">
+    <Styled.Wrapper href="./">
       <Styled.WrapperInner>
       <Image
         src={`./images/logo${props?.isDark ? '-dark' : ''}.svg`}
