@@ -7,13 +7,6 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Exo:wght@300&family=Open+Sans:wght@300&display=swap"
-          rel="stylesheet"
-        />
       </Head>
       <main>
         <Styled.Video autoPlay muted loop src={"./bg.mp4"} />
