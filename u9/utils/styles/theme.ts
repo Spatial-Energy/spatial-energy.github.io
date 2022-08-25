@@ -22,6 +22,10 @@ const theme = {
     white: '#ffffff',
     black: '#000000',
     cararra: '#eeede8',
+    bianca: '#FDFCF5',
+    codGray: '#111111',
+    codGray2: '#1a1a1a',
+    pampas: '#F0EFE7',
   },
   rfs: createRFS({ rfsBreakpoint: '1920px' }),
   fonts: {

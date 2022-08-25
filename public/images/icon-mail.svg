@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><svg version="1.1" width="18px" height="14px" viewBox="0 0 18.0 14.0"
+    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g transform="translate(1.0 1.0)">
+        <polygon points="0,0 15.7895,0 15.7895,12 0,12 0,0 0,0" stroke="#111111" stroke-width="2" fill="none"
+            stroke-linecap="round" stroke-linejoin="round"></polygon>
+        <g transform="translate(0.6313500000000003 0.6315900000000001)">
+            <path d="M0,0 L7.26316,6.31579 L14.52635,0" stroke="#111111" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+    </g>
+</svg>

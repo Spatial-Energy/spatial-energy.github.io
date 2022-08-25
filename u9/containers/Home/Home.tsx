@@ -1,31 +1,69 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
+
+import VideoBg from "u9/components/VideoBg/VideoBg";
+import Head from "u9/components/Head/Head";
 import * as Styled from "u9/containers/Home/Home.styles";
+import Menu from "u9/components/Menu/Menu";
+import { colors } from "u9/utils/styles/theme";
+import Footer from "../Footer/Footer";
+import { useEffect, useRef, useState } from "react";
+
+import gsap from 'gsap/dist/gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import SplitText from 'gsap/dist/SplitText';
 
 const Home: NextPage = () => {
+  const [visible, setVisible] = useState(false);
+  const labelRef = useRef(null);
+
+  useEffect(() => {
+    if (labelRef.current) {
+       
+      const sublabelAnimatedSplitTextChild = new SplitText(
+        labelRef.current,
+        {
+          type: 'lines',
+          linesClass: 'split-child',
+        }
+      );
+      const sublabelAnimatedSplitTextParent = new SplitText(
+        labelRef.current,
+        {
+          type: 'lines',
+          linesClass: 'split-parent',
+        }
+      );
+      gsap.from(sublabelAnimatedSplitTextChild.lines, {
+        duration: 1.5,
+        yPercent: 100,
+        ease: 'power4',
+        stagger: 0.3,
+        delay: 0.1,
+        opacity: 0,
+        onComplete: () => {
+          sublabelAnimatedSplitTextChild.revert();
+          sublabelAnimatedSplitTextParent.revert();
+        },
+        onStart: () => {
+          setVisible(true);
+        },
+      });
+    }
+  }, [labelRef]);
+
   return (
     <>
-      <Head>
-      </Head>
-      <main>
-        <Styled.Video autoPlay muted loop src={"./bg.mp4"} />
-        <Styled.WrapperLogo>
-          <Styled.Logo>
-            <Image
-              src={"./images/logo.svg"}
-              layout="fill"
-              objectFit="cover"
-              alt="Spatial logo"
-            />
-          </Styled.Logo>
-        </Styled.WrapperLogo>
-        <Styled.Wrapper>
-          <Styled.Label>
-            The Innovation Lab for the Real-Estate Industry
+      <Head title="Home" />
+      <Styled.Wrapper>
+        <VideoBg />
+        <Menu />
+        <Styled.WrapperLabel visible={visible}>
+          <Styled.Label ref={labelRef}>
+            The Innovation Lab for&nbsp;the Real-Estate Industry
           </Styled.Label>
-        </Styled.Wrapper>
-      </main>
+        </Styled.WrapperLabel>
+      </Styled.Wrapper>
+      
     </>
   );
 };

@@ -17,6 +17,7 @@
     "posttest": "yarn run lint"
   },
   "dependencies": {
+    "gsap": "./gsap-bonus.tgz",
     "lodash": "^4.17.21",
     "next": "12.2.5",
     "react": "18.2.0",
