@@ -1,46 +1,26 @@
-html, body {
-  height: 100%;
-  background-color: #01041b;
-  color: #a8f7ed;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.8vw;
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Exo', sans-serif;
-  margin-bottom: 0.2em;
-}
-p {
-  margin-top: 0.2em;
-}
+
 a {
-  color: #a8f7ed;
-  padding: 0 2px;
-}
-a:hover {
-  color: #01041b;
-  background-color: #a8f7ed;
+  color: inherit;
   text-decoration: none;
 }
-ul {
-  position: relative;
-  list-style: none;
+
+* {
+  box-sizing: border-box;
 }
-li::before {
-  content: "\2192";
-  position: absolute;
-  left: 0;
-}
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-.content {
-  text-align: center;
-}
-@media screen and (max-width: 900px) {
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
   body {
-      font-size: 3.6vw;
+    color: white;
+    background: black;
   }
 }
