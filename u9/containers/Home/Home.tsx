@@ -16,11 +16,11 @@ const Home: NextPage = () => {
         />
       </Head>
       <main>
-        <Styled.Video autoPlay={true} loop src="./bg.mp4" />
+        <Styled.Video autoPlay muted loop src={"./bg.mp4"} />
         <Styled.WrapperLogo>
           <Styled.Logo>
             <Image
-              src={"/images/logo.svg"}
+              src={"./images/logo.svg"}
               layout="fill"
               objectFit="cover"
               alt="Spatial logo"
