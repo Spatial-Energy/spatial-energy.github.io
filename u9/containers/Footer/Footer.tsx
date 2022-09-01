@@ -28,7 +28,13 @@ const Footer = ({ ...props }: FooterProps) => {
                 </div>
                 <div>
                   <div>
-                    <div>Send an e-mail</div>
+                    <div
+                      onClick={() => {
+                        window.open("mailto:hello@spatial.energy");
+                      }}
+                    >
+                      Send an e-mail
+                    </div>
                     <Styled.WrapperIcon>
                       <Styled.IconLink>
                         <Image

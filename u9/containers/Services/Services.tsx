@@ -1,14 +1,94 @@
 import Image from "next/image";
+import { useContext, useEffect } from "react";
 import Head from "u9/components/Head/Head";
-import Menu from "u9/components/Menu/Menu";
+import { BaseContext, BaseContextType } from "u9/contexts/base";
 import Footer from "../Footer/Footer";
 import * as Styled from "./Services.styles";
 
 const Services = () => {
+  const { setMenuDark }: BaseContextType = useContext(BaseContext);
+  useEffect(() => {
+    setMenuDark(true);
+  }, []);
+
+  const data = {
+    acc: [
+      {
+        title: "Digital Twin",
+        description: `A digital twin is a virtual representation that serves as the
+      real-time digital counterpart of a physical object or process.
+      Though the concept originated earlier (attributed to Michael
+      Grieves, then of the University of Michigan, in 2002) the first
+      practical definition of a digital twin originated from NASA in
+      an attempt to improve physical-model simulation of spacecraft in
+      2010.`,
+        image: "./images/services-digital-twin.png",
+      },
+      {
+        title: "VR, MR & AR",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida congue velit sit amet lacinia. Nam diam enim, tincidunt ut sapien at, porta tempus nisl. Curabitur finibus dui lectus, ut mollis libero pharetra id. In id accumsan enim, non aliquet massa. Sed euismod purus ut luctus faucibus. Sed varius orci magna, et porta ligula porta id. Fusce sit amet interdum neque.",
+        image: "./images/services-vr-mr-ar.png",
+      },
+      {
+        title: "Metaverse",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida congue velit sit amet lacinia. Nam diam enim, tincidunt ut sapien at, porta tempus nisl. Curabitur finibus dui lectus, ut mollis libero pharetra id. In id accumsan enim, non aliquet massa. Sed euismod purus ut luctus faucibus. Sed varius orci magna, et porta ligula porta id. Fusce sit amet interdum neque.",
+        image: "./images/services-metaverse.png",
+      },
+      {
+        title: "Desktop Appraisal",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida congue velit sit amet lacinia. Nam diam enim, tincidunt ut sapien at, porta tempus nisl. Curabitur finibus dui lectus, ut mollis libero pharetra id. In id accumsan enim, non aliquet massa. Sed euismod purus ut luctus faucibus. Sed varius orci magna, et porta ligula porta id. Fusce sit amet interdum neque.",
+        image: "./images/services-desktop-appraisal.png",
+      },
+      {
+        title: "IoT",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida congue velit sit amet lacinia. Nam diam enim, tincidunt ut sapien at, porta tempus nisl. Curabitur finibus dui lectus, ut mollis libero pharetra id. In id accumsan enim, non aliquet massa. Sed euismod purus ut luctus faucibus. Sed varius orci magna, et porta ligula porta id. Fusce sit amet interdum neque.",
+        image: "./images/services-iot.png",
+      },
+      {
+        title: "Mobile App & Web Tools",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida congue velit sit amet lacinia. Nam diam enim, tincidunt ut sapien at, porta tempus nisl. Curabitur finibus dui lectus, ut mollis libero pharetra id. In id accumsan enim, non aliquet massa. Sed euismod purus ut luctus faucibus. Sed varius orci magna, et porta ligula porta id. Fusce sit amet interdum neque.",
+        image: "./images/services-mobile-app-web-tools.png",
+      },
+    ],
+    phases: [
+      {
+        phase: "Phase 1",
+        title: "Discovery",
+        description:
+          "Nullam vulputate gravida enim, et tincidunt augue condimentum at. Nullam ultricies felis nisl, vitae pellen venenatis quis. Vitae vestibulum arcu, a semper metus nullam placerat.",
+        image: "./images/services-phase-1.png",
+      },
+      {
+        phase: "Phase 2",
+        title: "Production of MVP",
+        description:
+          "Nullam vulputate gravida enim, et tincidunt augue condimentum at. Nullam ultricies felis nisl, vitae pellen venenatis quis. Vitae vestibulum arcu, a semper metus nullam placerat.",
+        image: "./images/services-phase-2.png",
+      },
+      {
+        phase: "Phase 3",
+        title: "Validation & Reporting",
+        description:
+          "Nullam vulputate gravida enim, et tincidunt augue condimentum at. Nullam ultricies felis nisl, vitae pellen venenatis quis. Vitae vestibulum arcu, a semper metus nullam placerat.",
+        image: "./images/services-phase-3.png",
+      },
+      {
+        phase: "Phase 4",
+        title: "Final Solution",
+        description:
+          "Nullam vulputate gravida enim, et tincidunt augue condimentum at. Nullam ultricies felis nisl, vitae pellen venenatis quis. Vitae vestibulum arcu, a semper metus nullam placerat.",
+        image: "./images/services-phase-4.png",
+      },
+    ],
+  };
   return (
     <>
-     <Head title="Services" />
-      <Menu isDark/>
+      <Head title="Services" />
       <Styled.Wrapper>
         <Styled.Title>Services</Styled.Title>
         <Styled.Separator />
@@ -25,57 +105,43 @@ const Services = () => {
         </Styled.TopContent>
 
         <Styled.Acc>
-          <div>
+          {data.acc.map((item, index) => (
+            <div key={index}>
               <div>
-                <div>1</div>
+                <div>{item.title}</div>
+                <div>{item.description}</div>
+              </div>
+              <div>
                 <div>
-                  <div>Digital Twin</div>
-                  <div>
-                    A digital twin is a virtual representation that serves as the
-                    real-time digital counterpart of a physical object or process.
-                    Though the concept originated earlier (attributed to Michael
-                    Grieves, then of the University of Michigan, in 2002) the
-                    first practical definition of a digital twin originated from
-                    NASA in an attempt to improve physical-model simulation of
-                    spacecraft in 2010.
-                  </div>
+                  <Image
+                    src={item.image}
+                    layout="fill"
+                    objectFit="cover"
+                    alt=""
+                  />
                 </div>
               </div>
-              <div>
-                <Image
-                  src="./images/services-digital-twin.png"
-                  layout="fill"
-                  objectFit="cover"
-                  alt="Digital twin"
-                />
-              </div>
-              <div>
-                <div>Read</div>
-              </div>
-            
-          </div>
+            </div>
+          ))}
         </Styled.Acc>
-
         <Styled.HowWeWork>
           <div>How we Work</div>
           <div>
-            <div>
-              <div>Phase 1</div>
-              <div>Discovery</div>
-              <div>
-                Nullam vulputate gravida enim, et tincidunt augue condimentum at.
-                Nullam ultricies felis nisl, vitae pellen venenatis quis. Vitae
-                vestibulum arcu, a semper metus nullam placerat.
+            {data.phases.map((item, index) => (
+              <div key={index}>
+                <div>{item.phase}</div>
+                <div>{item.title}</div>
+                <div>{item.description}</div>
+                <div>
+                  <Image
+                    src={item.image}
+                    layout="fill"
+                    objectFit="contain"
+                    alt=""
+                  />
+                </div>
               </div>
-              <div>
-                <Image
-                  src="./images/services-phase-1.png"
-                  layout="fill"
-                  objectFit="cover"
-                  alt="Digital twin"
-                />
-              </div>
-            </div>
+            ))}
           </div>
         </Styled.HowWeWork>
       </Styled.Wrapper>

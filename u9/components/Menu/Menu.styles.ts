@@ -5,6 +5,7 @@ import { mediaCustom, pxToRems } from "u9/utils/styles/mixin";
 export const Wrapper = styled.div`
   position: absolute;
   width: 100%;
+  z-index: 1;
 `;
 
 export const WrapperInner = styled.div`
@@ -32,7 +33,8 @@ export const WrapperRoutes = styled.div<{ isDark: boolean }>`
   color: ${({ isDark }) => isDark ? colors.black : colors.white};
 `;
 
-export const Link = styled.div`
+export const Link = styled.div<{ isActive?: boolean }>`
+  ${({ isActive }) => isActive && `text-decoration: underline;`};
   cursor: pointer;
   text-align: center;
 

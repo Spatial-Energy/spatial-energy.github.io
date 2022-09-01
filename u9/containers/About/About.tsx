@@ -4,12 +4,45 @@ import Head from "u9/components/Head/Head";
 import * as Styled from "u9/containers/About/About.styles";
 import Menu from "u9/components/Menu/Menu";
 import Footer from "../Footer/Footer";
+import { BaseContext, BaseContextType } from "u9/contexts/base";
+import { useContext, useEffect } from "react";
+import OurPartners from "u9/components/OurPartners/OurPartners";
+import Image from "next/image";
+import { colors } from "u9/utils/styles/theme";
 
 const About: NextPage = () => {
+  const { setMenuDark }: BaseContextType = useContext(BaseContext);
+
+  const data = [
+    {
+      title: "Energy Open Piazza",
+      description: `An Energy Modelling tool that enables rapid assessment of solar energy generation and storage.`,
+      image: "./images/case-study-energy-open-piazza.png",
+      color: colors.mystic,
+    },
+    {
+      title: "Change Management",
+      description:
+        "Ci-iT is a knowledge management tool for construction that helps project teams efficiently respond to changes in building programmes.",
+      image: "./images/case-study-change-management.png",
+      color: colors.moonMist,
+    },
+    {
+      title: "iTwin",
+      description: "Digital twin XR App on Hololens-2 headset",
+      image: "./images/case-study-itwin.jpg",
+      color: colors.snuff,
+    },
+  ];
+
+  useEffect(() => {
+    setMenuDark(true);
+  }, []);
+
   return (
     <>
       <Head title="About" />
-      <Menu isDark/>
+      {/* <Menu isDark /> */}
       <Styled.Wrapper>
         <Styled.Title>About</Styled.Title>
         <Styled.Separator />
@@ -24,6 +57,29 @@ const About: NextPage = () => {
             </div>
           </div>
         </Styled.TopContent>
+        <Styled.CaseStudies>
+          <Styled.Title>Case Studies</Styled.Title>
+          <Styled.Acc>
+            {data.map((item, index) => (
+              <Styled.Case key={index} color={item.color}>
+                <div>
+                  <div>{item.title}</div>
+                  <div>{item.description}</div>
+                </div>
+                <div>
+                  <div>
+                    <Image
+                      src={item.image}
+                      layout="fill"
+                      objectFit="cover"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </Styled.Case>
+            ))}
+          </Styled.Acc>
+        </Styled.CaseStudies>
         <Styled.Partners>
           <div>Partners</div>
           <div>
@@ -32,14 +88,7 @@ const About: NextPage = () => {
             direct experience working with international organisations such as:
           </div>
 
-          <div>
-            <div>UCL</div>
-            <div>Sheffield Uni</div>
-            <div>Avison Young</div>
-            <div>Bentley Systems</div>
-            <div>IES</div>
-            <div>Skanska</div>
-          </div>
+          <OurPartners />
         </Styled.Partners>
       </Styled.Wrapper>
       <Footer isAbout />

@@ -94,7 +94,9 @@ export const TopContent = styled.div`
 `;
 
 export const Acc = styled.div`
-  ${rfs(`${pxToRems(70)}rem`, "padding")};
+  ${rfs(`${pxToRems(70)}rem`, "padding-left")};
+  ${rfs(`${pxToRems(70)}rem`, "padding-right")};
+  
   ${rfs(`${pxToRems(129)}rem`, "margin-top")};
   ${rfs(`${pxToRems(184)}rem`, "margin-bottom")};
   border-radius: 30px;
@@ -105,28 +107,66 @@ export const Acc = styled.div`
     display: flex;
     justify-content: space-between;
 
-    column-gap: 24px;
+     
+    ${rfs(`${pxToRems(178)}rem`, "column-gap")};
+    ${rfs(`${pxToRems(80)}rem`, "padding-top")};
+    ${rfs(`${pxToRems(80)}rem`, "padding-bottom")};
+    border-bottom: 1px solid ${colors.black}20;
 
     ${mediaCustom(
       1024,
       `
       flex-direction: column;
-      row-gap: 24px;
+      ${rfs(`${pxToRems(40)}rem`, "row-gap")};
     `
     )}
-
-    > div: nth-child(2) {
+    >div: nth-child(1) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      >div: nth-child(1) {
+        font-family: "Trap";
+        ${rfs(`${pxToRems(36)}rem`, "font-size")};
+        line-height: 90%;
+        letter-spacing: -0.03em;
+        font-style: normal;
+        font-weight: 500;
+      }
+      >div: nth-child(2) {
+        font-family: "Darker Grotesque";
+        ${rfs(`${pxToRems(20)}rem`, "font-size")};
+        line-height: 90%;
+        letter-spacing: -0.03em;
+        font-style: normal;
+        font-weight: 500;
+        margin-top: 16px;
+      }
+    }
+    >div: nth-child(2) {
       position: relative;
       ${rfs(`${pxToRems(730)}rem`, "width")};
       ${rfs(`${pxToRems(620)}rem`, "height")};
       flex-shrink: 0;
+      border-radius: 20px;
+      overflow: hidden;
+      ${mediaCustom(
+        1024,
+        `
+        width: 100%;
+        ${rfs(`${pxToRems(730)}rem`, "height")};
+      `
+      )}
     }
+  }
+
+  >div: last-child {
+    border-bottom: unset;
   }
 `;
 
 export const HowWeWork = styled.div`
   ${rfs(`${pxToRems(184)}rem`, "margin-top")};
-  
+
   >div: first-child {
     font-family: "Trap";
     ${rfs(`${pxToRems(100)}rem`, "font-size")};
@@ -141,8 +181,27 @@ export const HowWeWork = styled.div`
   }
 
   >div: nth-child(2) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    ${rfs(`${pxToRems(160)}rem`, "column-gap")};
+    ${rfs(`${pxToRems(160)}rem`, "row-gap")};
+    
+    >div: nth-child(odd) {
+      /* border-right: 1px solid ${colors.black}20; */
+    }
+
+    >div: nth-child(even) {
+      ${rfs(`${pxToRems(160)}rem`, "margin-top")};
+    }
+    >div: nth-child(n+3) {
+      opacity: 0.5;
+    }
+    
     > div {
-      max-width: 50%;
+      display: flex;
+      flex-direction: column;
+      width: calc(50% - ${pxToRems(160)}rem);
       border-top: 1px solid ${colors.black};
       >div: first-child {
         ${rfs(`${pxToRems(20)}rem`, "padding-top")};
@@ -175,10 +234,11 @@ export const HowWeWork = styled.div`
 
         ${rfs(`${pxToRems(92)}rem`, "margin-bottom")};
       }
-      > div: nth-child(4) {
+      >div: nth-child(4) {
         position: relative;
-        ${rfs(`${pxToRems(500)}rem`, "width")}; 
-        ${rfs(`${pxToRems(500)}rem`, "height")}; 
+        ${rfs(`${pxToRems(500)}rem`, "width")};
+        ${rfs(`${pxToRems(500)}rem`, "height")};
+        align-self: center;
       }
     }
   }

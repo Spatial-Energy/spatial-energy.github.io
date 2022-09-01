@@ -137,6 +137,7 @@ export const WrapperContact = styled.div`
         > div: first-child {
           ${rfs(`${pxToRems(60)}rem`, "padding-left")};
           ${rfs(`${pxToRems(60)}rem`, "padding-right")};
+          margin-top: 3px;
         }
 
         cursor: pointer;

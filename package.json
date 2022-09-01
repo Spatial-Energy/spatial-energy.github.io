@@ -25,7 +25,6 @@
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
-    "@types/gsap": "^3.0.0",
     "@types/lodash": "^4.14.184",
     "@types/node": "18.7.9",
     "@types/react": "18.0.17",

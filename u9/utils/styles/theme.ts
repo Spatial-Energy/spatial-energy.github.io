@@ -26,6 +26,9 @@ const theme = {
     codGray: '#111111',
     codGray2: '#1a1a1a',
     pampas: '#F0EFE7',
+    mystic: '#DDE8EC',
+    moonMist: '#D9DAC9',
+    snuff: '#DFDDEC',
   },
   rfs: createRFS({ rfsBreakpoint: '1920px' }),
   fonts: {
