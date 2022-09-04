@@ -171,9 +171,11 @@ const AccItem = ({ ...restProps }) => {
 
   const resize = () => {
     if (restProps?.isSelected && itemRef.current) {
+      // @ts-ignore
       setHeight(itemRef.current.scrollHeight);
     }
     if (!restProps?.isSelected && titleRef.current) {
+      // @ts-ignore
       setHeight(titleRef.current.scrollHeight);
     }
     if (descRef.current) {
