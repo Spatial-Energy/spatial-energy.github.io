@@ -1,9 +1,12 @@
 import Image from "next/image";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Head from "u9/components/Head/Head";
+import { Wrapper, WrapperInner } from "u9/components/Layout/Layout";
 import { BaseContext, BaseContextType } from "u9/contexts/base";
 import Footer from "../Footer/Footer";
 import * as Styled from "./Services.styles";
+import { gsap } from "gsap/dist/gsap";
+import useWindowSize from "u9/utils/hooks/useWindowSize";
 
 const Services = () => {
   const { setMenuDark }: BaseContextType = useContext(BaseContext);
@@ -86,68 +89,128 @@ const Services = () => {
       },
     ],
   };
+
+  const [accSelectedIndex, setAccSelectedIndex] = useState(0);
   return (
     <>
       <Head title="Services" />
-      <Styled.Wrapper>
-        <Styled.Title>Services</Styled.Title>
-        <Styled.Separator />
-        <Styled.TopContent>
-          <div>We develop products</div>
-          <div>
-            <div>technologies + ART</div>
+      <Wrapper>
+        <WrapperInner>
+          <Styled.Title>Services</Styled.Title>
+          <Styled.Separator />
+          <Styled.TopContent>
+            <div>We develop products</div>
             <div>
-              We have worked with international companies, helping them solve{" "}
-              <span>complex problems</span> with state of{" "}
-              <span>the art technologies</span>, such as:
-            </div>
-          </div>
-        </Styled.TopContent>
-
-        <Styled.Acc>
-          {data.acc.map((item, index) => (
-            <div key={index}>
+              <div>technologies + ART</div>
               <div>
-                <div>{item.title}</div>
-                <div>{item.description}</div>
-              </div>
-              <div>
-                <div>
-                  <Image
-                    src={item.image}
-                    layout="fill"
-                    objectFit="cover"
-                    alt=""
-                  />
-                </div>
+                We have worked with international companies, helping them solve{" "}
+                <span>complex problems</span> with state of{" "}
+                <span>the art technologies</span>, such as:
               </div>
             </div>
-          ))}
-        </Styled.Acc>
-        <Styled.HowWeWork>
-          <div>How we Work</div>
-          <div>
-            {data.phases.map((item, index) => (
-              <div key={index}>
-                <div>{item.phase}</div>
-                <div>{item.title}</div>
-                <div>{item.description}</div>
-                <div>
-                  <Image
-                    src={item.image}
-                    layout="fill"
-                    objectFit="contain"
-                    alt=""
-                  />
-                </div>
-              </div>
+          </Styled.TopContent>
+        </WrapperInner>
+        <WrapperInner spaceSize={20}>
+          <Styled.Acc>
+            {data.acc.map((item, index) => (
+              <AccItem
+                key={index}
+                item={item}
+                onClick={() => {
+                  setAccSelectedIndex(index);
+                }}
+                isSelected={accSelectedIndex === index}
+              />
             ))}
-          </div>
-        </Styled.HowWeWork>
-      </Styled.Wrapper>
+          </Styled.Acc>
+        </WrapperInner>
+        <WrapperInner>
+          <Styled.HowWeWork>
+            <div>How we Work</div>
+            <div>
+              {data.phases.map((item, index) => (
+                <div key={index}>
+                  <div>{item.phase}</div>
+                  <div>{item.title}</div>
+                  <div>{item.description}</div>
+                  <div>
+                    <Image
+                      src={item.image}
+                      layout="fill"
+                      objectFit="contain"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Styled.HowWeWork>
+        </WrapperInner>
+      </Wrapper>
       <Footer />
     </>
   );
 };
 
 export default Services;
+
+const AccItem = ({ ...restProps }) => {
+  const { width } = useWindowSize();
+  const itemRef = useRef(null);
+  const titleRef = useRef(null);
+  const descRef = useRef(null);
+  const imageRef = useRef(null);
+  const [height, setHeight] = useState(0);
+  useEffect(() => {
+    resize();
+    setTimeout(() => {
+      resize();
+    }, 300);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [width, titleRef, restProps?.isSelected, itemRef, descRef, imageRef]);
+
+  const resize = () => {
+    if (restProps?.isSelected && itemRef.current) {
+      setHeight(itemRef.current.scrollHeight);
+    }
+    if (!restProps?.isSelected && titleRef.current) {
+      setHeight(titleRef.current.scrollHeight);
+    }
+    if (descRef.current) {
+      gsap.to(descRef.current, {
+        autoAlpha: restProps?.isSelected ? 1 : 0,
+      });
+    }
+    if (imageRef.current) {
+      gsap.to(imageRef.current, {
+        autoAlpha: restProps?.isSelected ? 1 : 0,
+      });
+    }
+  };
+
+  return (
+    <Styled.AccItem
+      onClick={() => {
+        restProps?.onClick();
+      }}
+      isSelected={restProps?.isSelected}
+      ref={itemRef}
+      height={height}
+    >
+      <div>
+        <div ref={titleRef}>{restProps?.item?.title}</div>
+        <div ref={descRef}>{restProps?.item?.description}</div>
+      </div>
+      <div ref={imageRef}>
+        <div>
+          <Image
+            src={restProps?.item?.image}
+            layout="fill"
+            objectFit="cover"
+            alt=""
+          />
+        </div>
+      </div>
+    </Styled.AccItem>
+  );
+};

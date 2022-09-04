@@ -10,6 +10,7 @@ const style = css`
     padding: 0;
     outline: none;
     user-select: text;
+    background-color: ${colors.pink}50;
   }
 
   ::selection {

@@ -9,6 +9,7 @@ import { useContext, useEffect } from "react";
 import OurPartners from "u9/components/OurPartners/OurPartners";
 import Image from "next/image";
 import { colors } from "u9/utils/styles/theme";
+import { Wrapper, WrapperInner } from "u9/components/Layout/Layout";
 
 const About: NextPage = () => {
   const { setMenuDark }: BaseContextType = useContext(BaseContext);
@@ -43,20 +44,23 @@ const About: NextPage = () => {
     <>
       <Head title="About" />
       {/* <Menu isDark /> */}
-      <Styled.Wrapper>
-        <Styled.Title>About</Styled.Title>
-        <Styled.Separator />
-        <Styled.TopContent>
-          <div>We Research, Analyze & consult</div>
-          <div>
-            <div>Construction & Real ESTATE INDUSTRY</div>
+      <Wrapper>
+        <WrapperInner>
+          <Styled.Title>About</Styled.Title>
+          <Styled.Separator />
+          <Styled.TopContent>
+            <div>We Research, Analyze & consult</div>
             <div>
-              Spatial Energy is a research, data science, and tech consultancy
-              that specialises in building solutions for complex problems for
-              the construction and real estate industry.
+              <div>Construction & Real ESTATE INDUSTRY</div>
+              <div>
+                Spatial Energy is a research, data science, and tech consultancy
+                that specialises in building solutions for complex problems for
+                the construction and real estate industry.
+              </div>
             </div>
-          </div>
-        </Styled.TopContent>
+          </Styled.TopContent>
+        </WrapperInner>
+        <WrapperInner spaceSize={20}>
         <Styled.CaseStudies>
           <Styled.Title>Case Studies</Styled.Title>
           <Styled.Acc>
@@ -80,6 +84,8 @@ const About: NextPage = () => {
             ))}
           </Styled.Acc>
         </Styled.CaseStudies>
+        </WrapperInner>
+        <WrapperInner>
         <Styled.Partners>
           <div>Partners</div>
           <div>
@@ -90,7 +96,9 @@ const About: NextPage = () => {
 
           <OurPartners />
         </Styled.Partners>
-      </Styled.Wrapper>
+        </WrapperInner>
+      </Wrapper>
+       
       <Footer isAbout />
     </>
   );

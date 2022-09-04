@@ -17,7 +17,7 @@ const Menu = ({ ...props }: MenuProps) => {
   return (
     <Styled.Wrapper>
       <Styled.WrapperInner>
-        <Link href="./" passHref>
+        <Link href="./">
           <Logo isDark={isMenuDark || false} />
         </Link>
         <Styled.WrapperRoutes isDark={isMenuDark || false}>

@@ -1,29 +1,28 @@
 import styled from "styled-components";
-import { colors, rfs } from "u9/utils/styles/theme";
-import { pxToRems, setVh } from "u9/utils/styles/mixin";
-
-export const Wrapper = styled.main``;
+import { colors } from "u9/utils/styles/theme";
+import { setTypography, setVh } from "u9/utils/styles/mixin";
 
 export const WrapperLabel = styled.div<{ visible: boolean }>`
   width: 100%;
-  min-height: 100vh;
+  min-height: ${setVh(100)};
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  ${rfs(`${pxToRems(60)}rem`, "padding-left")};
-  ${rfs(`${pxToRems(60)}rem`, "padding-right")};
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
 `;
 
 export const Label = styled.div`
-  font-family: "Trap";
-  ${rfs(`${pxToRems(120)}rem`, "font-size")};
-  line-height: 90%;
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  text-align: center;
+  ${setTypography('headline1')};
   color: ${colors.white};
   max-width: 1124px;
+  text-align: center;
+`;
+
+export const Video = styled.video`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -7224;
+  object-fit: cover;
 `;

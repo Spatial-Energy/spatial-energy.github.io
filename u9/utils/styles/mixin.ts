@@ -11,10 +11,12 @@ export const setVh = (value: number) => `calc(var(--vh, 1vh) * ${value})`;
 export const setTypography = (category: keyof typeof fonts.scale) => `
   ${Object.entries(fonts.scale[category])
     .map(([key, value]) => {
-      const isRemUnit = ['fontSize', 'letterSpacing'].includes(key);
+      const isRemUnit = ['fontSize'].includes(key);
+      const isPercUnit = ['lineHeight'].includes(key);
+      const isEmUnit = ['letterSpacing'].includes(key);
       const parsedKey = kebabCase(key);
       // @ts-ignore
-      return isRemUnit ? `${rfs(`${pxToRems(value)}rem`, `${parsedKey}`)};` : `${parsedKey}: ${value};`;
+      return isRemUnit ? `${rfs(`${pxToRems(value)}rem`, `${parsedKey}`)};` : `${parsedKey}: ${value}${isEmUnit ? 'em' : ''}${isPercUnit ? '%' : ''};`;
     })
     .join('\n')}
 `;

@@ -1,21 +1,16 @@
 import type { NextPage } from "next";
 
-import VideoBg from "u9/components/VideoBg/VideoBg";
 import Head from "u9/components/Head/Head";
-import * as Styled from "u9/containers/Home/Home.styles";
-import Menu from "u9/components/Menu/Menu";
-import { colors } from "u9/utils/styles/theme";
-import Footer from "../Footer/Footer";
-import { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { BaseContext, BaseContextType } from "u9/contexts/base";
 
 import gsap from "gsap/dist/gsap";
 import SplitText from "gsap/dist/SplitText";
-
+import { Wrapper, WrapperInner } from "u9/components/Layout/Layout";
+import * as Styled from "u9/containers/Home/Home.styles";
 const Home: NextPage = () => {
   const { setMenuDark }: BaseContextType = useContext(BaseContext);
-
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   const labelRef = useRef(null);
 
   useEffect(() => {
@@ -31,13 +26,13 @@ const Home: NextPage = () => {
       gsap.from(sublabelAnimatedSplitTextChild.lines, {
         duration: 1.5,
         yPercent: 100,
-        ease: "power4",
-        stagger: 0.3,
-        delay: 0.1,
         opacity: 0,
+        ease: "power4.out",
+        stagger: 0.3,
         onComplete: () => {
           sublabelAnimatedSplitTextChild.revert();
           sublabelAnimatedSplitTextParent.revert();
+          setVisible(true);
         },
         onStart: () => {
           setVisible(true);
@@ -53,14 +48,18 @@ const Home: NextPage = () => {
   return (
     <>
       <Head title="Home" />
-      <Styled.Wrapper>
-        <VideoBg />
-        <Styled.WrapperLabel visible={visible}>
-          <Styled.Label ref={labelRef}>
-            The Innovation Lab for&nbsp;the Real-Estate Industry
-          </Styled.Label>
-        </Styled.WrapperLabel>
-      </Styled.Wrapper>
+      <Wrapper>
+        <Styled.Video autoPlay muted loop>
+          <source src={"./bg.mp4"} type="video/mp4" />
+        </Styled.Video>
+        <WrapperInner>
+          <Styled.WrapperLabel visible={visible}>
+            <Styled.Label ref={labelRef}>
+              The Innovation Lab for&nbsp;the Real-Estate Industry
+            </Styled.Label>
+          </Styled.WrapperLabel>
+        </WrapperInner>
+      </Wrapper>
     </>
   );
 };

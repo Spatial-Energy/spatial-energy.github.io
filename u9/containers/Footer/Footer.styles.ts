@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { colors, rfs } from "u9/utils/styles/theme";
-import { mediaCustom, pxToRems } from "u9/utils/styles/mixin";
+import { mediaCustom, pxToRems, setTypography } from "u9/utils/styles/mixin";
 
 export const Wrapper = styled.div`
   color: ${colors.white};
@@ -19,12 +19,7 @@ export const WrapperLinkCases = styled.div`
 `;
 
 export const Label = styled.div`
-  font-family: "Trap";
-  ${rfs(`${pxToRems(22)}rem`, "font-size")};
-  line-height: 90%;
-  letter-spacing: -0.03em;
-  font-style: normal;
-  font-weight: 600;
+  ${setTypography("headline7")};
   ${rfs(`${pxToRems(127)}rem`, "margin-top")};
   ${rfs(`${pxToRems(39)}rem`, "margin-bottom")};
 `;
@@ -36,12 +31,7 @@ export const Separator = styled.div`
 `;
 
 export const Link = styled.div`
-  font-family: "Trap";
-  ${rfs(`${pxToRems(100)}rem`, "font-size")};
-  line-height: 90%;
-  letter-spacing: -0.03em;
-  font-style: normal;
-  font-weight: 600;
+  ${setTypography("headline6")}
   ${rfs(`${pxToRems(158)}rem`, "margin-bottom")};
   text-decoration: underline;
   cursor: pointer;
@@ -55,21 +45,18 @@ export const WrapperRP = styled.div`
   display: flex;
   justify-content: space-between;
 
-  font-family: "Trap";
-  ${rfs(`${pxToRems(14)}rem`, "font-size")};
-  line-height: 120%;
-  letter-spacing: -0.03em;
-  font-style: normal;
-  font-weight: 600;
+  ${setTypography("caption")}
   color: ${colors.bianca}50;
 
-  
   ${rfs(`${pxToRems(24)}rem`, "column-gap")};
-  ${mediaCustom(768, `
+  ${mediaCustom(
+    768,
+    `
     flex-direction: column;
     align-items: center;
     ${rfs(`${pxToRems(24)}rem`, "row-gap")};
-  `)}
+  `
+  )}
 `;
 
 export const Shape = styled.div`
@@ -79,62 +66,56 @@ export const Shape = styled.div`
   border-radius: 0 0 30px 30px;
 `;
 
-
 export const WrapperContact = styled.div`
   ${rfs(`${pxToRems(64)}rem`, "margin-top")};
   ${rfs(`${pxToRems(64)}rem`, "margin-bottom")};
   > div {
     display: flex;
     justify-content: space-between;
-    > div: nth-child(2) {
+    >div: nth-child(2) {
       width: 60%;
-      ${mediaCustom(768, `
+      ${mediaCustom(
+        768,
+        `
         width: 100%;
-      `)}
+      `
+      )}
     }
 
-    ${mediaCustom(768, `
+    ${mediaCustom(
+      768,
+      `
       flex-direction: column;
       align-items: flex-start;
       ${rfs(`${pxToRems(24)}rem`, "row-gap")};
-    `)}
+    `
+    )}
   }
 
-  > div: first-child {
-    font-family: "Trap";
-    ${rfs(`${pxToRems(64)}rem`, "font-size")};
-    line-height: 90%;
-    letter-spacing: -0.03em;
-    font-style: normal;
-    font-weight: 600;
-
+  >div: first-child {
+    ${setTypography("headline5")}
     ${rfs(`${pxToRems(335)}rem`, "margin-bottom")};
   }
 
-  > div: nth-child(2) {
-    font-family: "Trap";
-    ${rfs(`${pxToRems(16)}rem`, "font-size")};
-    line-height: 90%;
-    letter-spacing: -0.03em;
-    font-style: normal;
-    font-weight: 600;
+  >div: nth-child(2) {
+    ${setTypography("headline4")}
 
     > div: first-child {
       text-transform: uppercase;
     }
-    > div: nth-child(2) {
+    >div: nth-child(2) {
       text-transform: uppercase;
-      > div {        
+      > div {
         padding: 5px;
         background-color: ${colors.white};
         color: ${colors.black};
         border-radius: 100px;
-        
+
         display: inline-flex;
         align-items: center;
         justify-content: space-between;
 
-        > div: first-child {
+        >div: first-child {
           ${rfs(`${pxToRems(60)}rem`, "padding-left")};
           ${rfs(`${pxToRems(60)}rem`, "padding-right")};
           margin-top: 3px;
@@ -144,7 +125,7 @@ export const WrapperContact = styled.div`
       }
     }
   }
-`
+`;
 
 export const WrapperIcon = styled.div`
   width: 40px;

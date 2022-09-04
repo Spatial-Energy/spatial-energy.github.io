@@ -60,7 +60,7 @@ const Footer = ({ ...props }: FooterProps) => {
           <Styled.Separator />
           <Styled.WrapperRP>
             <div>Spatial Energy. All rights reserved.</div>
-            <div>Cookie Policy</div>
+            {/* <div>Cookie Policy</div> */}
           </Styled.WrapperRP>
         </Styled.WrapperInner>
       </Styled.Wrapper>

@@ -3,13 +3,13 @@ import type { AppProps } from "next/app";
 
 import GlobalStyles from "u9/utils/styles/globalStyles";
 import Menu from "u9/components/Menu/Menu";
-// import gsap from "gsap/dist/gsap";
-// import ScrollTrigger from "gsap/dist/ScrollTrigger";
-// import SplitText from "gsap/dist/SplitText";
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { SplitText } from "gsap/dist/SplitText";
 
-// gsap.registerPlugin(ScrollTrigger, SplitText);
-// gsap.defaults({ overwrite: "auto", duration: 0.3 });
-// gsap.config({ nullTargetWarn: false });
+gsap.registerPlugin(ScrollTrigger, SplitText);
+gsap.defaults({ overwrite: "auto", duration: 0.3 });
+gsap.config({ nullTargetWarn: false });
 
 // contexts
 import { BaseProvider } from "u9/contexts/base";

@@ -13,7 +13,7 @@ return (
         src={`./images/logo${props?.isDark ? '-dark' : ''}.svg`}
         layout="fill"
         objectFit="cover"
-        alt="Spatial logo"
+        alt="Spatial energy logo"
       />
       </Styled.WrapperInner>
     </Styled.Wrapper>
