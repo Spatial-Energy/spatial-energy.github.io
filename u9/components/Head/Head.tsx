@@ -11,7 +11,7 @@ export interface HeadProps {
   };
 }
 
-const viewport = `width=device-width, initial-scale=1.0, shrink-to-fit=no,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0', viewport-fit=cover`;
+const viewport = `width=device-width, initial-scale=1.0, shrink-to-fit=no, minimum-scale=1.0,maximum-scale=1.0, user-scalable=0', viewport-fit=cover`;
 
 const Head: React.FunctionComponent<HeadProps> = ({
   title,

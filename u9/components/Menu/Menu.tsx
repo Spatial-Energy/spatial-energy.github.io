@@ -3,11 +3,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useContext, useEffect, useRef, useState } from "react";
 import { BaseContext, BaseContextType } from "u9/contexts/base";
-import { colors } from "u9/utils/styles/theme";
-import Logo from "../Logo/Logo";
+
 import * as Styled from "./Menu.styles";
 import { gsap } from "gsap/dist/gsap";
 import useWindowSize from "u9/utils/hooks/useWindowSize";
+import useOnClickOutside from "u9/utils/hooks/useOnClickOutside";
 
 type MenuProps = {
   isDark?: boolean;
@@ -20,6 +20,9 @@ const Menu = ({ ...props }: MenuProps) => {
   const menuLine1Ref = useRef(null);
   const menuLine2Ref = useRef(null);
   const windowSize = useWindowSize();
+
+  const wrapperRef = useRef(null);
+  useOnClickOutside(wrapperRef, () => setMenuActive(false));
 
   useEffect(() => {
     // prettier-ignore
@@ -43,10 +46,17 @@ const Menu = ({ ...props }: MenuProps) => {
   }, [router.asPath]);
 
   return (
-    <Styled.Wrapper>
+    <Styled.Wrapper ref={wrapperRef}>
       <Styled.WrapperInner>
-        <Link href="./" passHref>
-          <Logo />
+        <Link href="/home" passHref>
+          <Styled.WrapperLogo>
+            <Image
+              src={`./images/logo${isMenuDark ? "-dark" : ""}.svg`}
+              layout="fill"
+              objectFit="cover"
+              alt="Spatial energy logo"
+            />
+          </Styled.WrapperLogo>
         </Link>
         {/* prettier-ignore */}
         <Styled.WrapperIconMobile onClick={() => setMenuActive(!isMenuActive)}> 

@@ -17,6 +17,7 @@
     "posttest": "yarn run lint"
   },
   "dependencies": {
+    "framer-motion": "^7.3.2",
     "gsap": "./gsap-bonus.tgz",
     "lodash": "^4.17.21",
     "next": "12.2.5",

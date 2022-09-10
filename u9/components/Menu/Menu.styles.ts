@@ -7,6 +7,13 @@ export const Wrapper = styled.div`
   width: 100%;
 `;
 
+export const WrapperLogo = styled.a`
+  position: relative;
+  height: 37.49px;
+  width: 133.02px;
+  cursor: pointer;
+`;
+
 export const WrapperInner = styled.div`
   ${rfs(`${pxToRems(72)}rem`, "padding-left")};
   ${rfs(`${pxToRems(48)}rem`, "padding-top")};
@@ -15,15 +22,15 @@ export const WrapperInner = styled.div`
   justify-content: space-between;
   align-items: center;
   ${rfs(`${pxToRems(50)}rem`, "column-gap")};
-  > div: nth-child(2) {
+  >div: nth-child(2) {
     position: relative;
   }
   ${mediaCustom(
-      768,
-      `
+    768,
+    `
         align-items: flex-start;
       `
-    )}
+  )}
 `;
 
 export const WrapperRoutes = styled.div<{ isDark: boolean }>`

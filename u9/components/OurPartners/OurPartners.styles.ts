@@ -1,25 +1,31 @@
 import { pxToRems } from "u9/utils/styles/mixin";
-import { rfs } from "u9/utils/styles/theme";
+import { colors, rfs } from "u9/utils/styles/theme";
 import styled from "styled-components";
-import { colors } from "../../utils/styles/theme";
+import { motion } from "framer-motion";
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
- 
-
-export const WrapperCovers = styled.div`
-  display: flex;
-  align-items: center;
-  ${rfs(`${pxToRems(178)}rem`, "column-gap")};
+  ${rfs(`${pxToRems(253)}rem`, "margin-top")};
+  ${rfs(`${pxToRems(207)}rem`, "margin-bottom")};
+  
 `;
 
-export const WrapperClientImage = styled.div`
-  position: relative;
-  width: 100%;
+export const WrapperLogos = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  ${rfs(`${pxToRems(80)}rem`, "column-gap")};
   img {
-    max-height: 135px;
+    ${rfs(`${pxToRems(135)}rem`, "max-height")};
   }
-`;
+`
+
+export const WrapperMotion = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+`
+export const WrapperMotionInner = styled(motion.div)`
+  display: flex;
+  flex-wrap: nowrap;
+  ${rfs(`${pxToRems(80)}rem`, "column-gap")};
+`

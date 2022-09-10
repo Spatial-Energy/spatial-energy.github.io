@@ -88,10 +88,9 @@ const About: NextPage = () => {
               direct experience working with international organisations such
               as:
             </div>
-
-            <OurPartners />
           </Styled.Partners>
         </WrapperInner>
+        <OurPartners />
       </Wrapper>
 
       <Footer isAbout />
@@ -117,7 +116,11 @@ const Case = ({ ...restProps }) => {
           : // @ts-ignore
             titleRef.current.scrollHeight,
         marginTop: 40,
-        marginBottom: restProps?.isSelected ? 70 : restProps?.isLast ? 40 : 70,
+        marginBottom: restProps?.isSelected
+          ? restProps?.isLast
+            ? 40
+            : 70
+          : 40,
       });
       gsap.to(descRef?.current, {
         autoAlpha: restProps?.isSelected ? 1 : 0,
@@ -142,12 +145,8 @@ const Case = ({ ...restProps }) => {
         </div>
         <div ref={imageRef}>
           <div>
-            <Image
-              src={restProps?.item?.image}
-              layout="fill"
-              objectFit="cover"
-              alt=""
-            />
+            {/* prettier-ignore */}
+            <Image src={restProps?.item?.image} layout="fill" objectFit="cover" alt="" />
           </div>
         </div>
       </div>
