@@ -9,7 +9,7 @@ import { SplitText } from "gsap/dist/SplitText";
 import * as gtag from "u9/utils/gtag";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
-gsap.defaults({ overwrite: "auto", duration: 0.3 });
+gsap.defaults({ overwrite: "auto", duration: 0.3612 });
 gsap.config({ nullTargetWarn: false });
 
 // contexts

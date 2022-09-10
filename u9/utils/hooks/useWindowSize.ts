@@ -1,40 +1,43 @@
-import _ from 'lodash'
-import { useState } from 'react'
-import useEventListener from './useEventListener'
+import { useEffect, useRef, useState } from 'react';
 
-// See: https://usehooks-ts.com/react-hook/use-event-listener
-import useIsomorphicLayoutEffect from './useIsomorphicLayoutEffect'
-// See: https://usehooks-ts.com/react-hook/use-isomorphic-layout-effect
+import ResizeService from '../services/resize.service';
 
-interface WindowSize {
-  width: number
-  height: number
-}
+const windowSize = () => ResizeService.size;
 
-function useWindowSize(): WindowSize {
-  const [windowSize, setWindowSize] = useState<WindowSize>({
-    width: 0,
-    height: 0,
-  })
+// Only set "setListeners" to true once per app
+// (on the highest level component using it, usually the app or non-functionals containers)
+const useWindowSize = (setListeners = false) => {
+  const [size, setSize] = useState(windowSize());
+  const [isMounted, setMounted] = useState<boolean>(false);
+  const isRendered = useRef<boolean>(false);
 
-  const handleSize = () => {
-    _.debounce(() => {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      })
-    }, 250)
-  }
-
-  useEventListener('resize', handleSize)
-
-  // Set size at the first client-side load
-  useIsomorphicLayoutEffect(() => {
-    handleSize()
+  useEffect(() => {
+    if (isMounted) {
+      if (setListeners) ResizeService.addListeners();
+      isRendered.current = true;
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [isMounted]);
 
-  return windowSize
-}
+  useEffect(() => {
+    const onResize = () => {
+      if (isRendered.current) setSize(windowSize());
+    };
 
-export default useWindowSize
+    setMounted(true);
+    ResizeService.add(onResize);
+
+    return () => {
+      ResizeService.remove(onResize);
+      if (setListeners) ResizeService.removeListeners();
+
+      setMounted(false);
+      isRendered.current = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return size;
+};
+
+export default useWindowSize;

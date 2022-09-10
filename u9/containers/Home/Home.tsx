@@ -15,20 +15,12 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     if (labelRef.current) {
-      const sublabelAnimatedSplitTextChild = new SplitText(labelRef.current, {
-        type: "lines",
-        linesClass: "split-child",
-      });
-      const sublabelAnimatedSplitTextParent = new SplitText(labelRef.current, {
-        type: "lines",
-        linesClass: "split-parent",
-      });
-      gsap.from(sublabelAnimatedSplitTextChild.lines, {
-        duration: 1.5,
-        yPercent: 100,
-        opacity: 0,
-        ease: "power4.out",
-        stagger: 0.3,
+      // prettier-ignore
+      const sublabelAnimatedSplitTextChild = new SplitText(labelRef.current, { type: "lines", linesClass: "split-child" });
+      // prettier-ignore
+      const sublabelAnimatedSplitTextParent = new SplitText(labelRef.current, { type: "lines", linesClass: "split-parent" });
+      // prettier-ignore
+      gsap.from(sublabelAnimatedSplitTextChild.lines, { duration: 1.5, yPercent: 100, opacity: 0, ease: "power4.out", stagger: 0.3,
         onComplete: () => {
           sublabelAnimatedSplitTextChild.revert();
           sublabelAnimatedSplitTextParent.revert();
@@ -55,7 +47,7 @@ const Home: NextPage = () => {
         <WrapperInner>
           <Styled.WrapperLabel visible={visible}>
             <Styled.Label ref={labelRef}>
-              The Innovation Lab for&nbsp;the Real-Estate Industry
+              The Innovation Lab for the Real-Estate Industry
             </Styled.Label>
           </Styled.WrapperLabel>
         </WrapperInner>

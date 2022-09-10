@@ -158,7 +158,7 @@ const Services = () => {
 export default Services;
 
 const AccItem = ({ ...restProps }) => {
-  const { width } = useWindowSize();
+  const windowSize = useWindowSize();
   const itemRef = useRef(null);
   const titleRef = useRef(null);
   const descRef = useRef(null);
@@ -182,7 +182,7 @@ const AccItem = ({ ...restProps }) => {
         autoAlpha: restProps?.isSelected ? 1 : 0,
       });
     }
-  }, [width, restProps?.isSelected]);
+  }, [windowSize.width, restProps?.isSelected]);
 
   return (
     <Styled.AccItem

@@ -102,7 +102,7 @@ const About: NextPage = () => {
 export default About;
 
 const Case = ({ ...restProps }) => {
-  const { width } = useWindowSize();
+  const windowSize = useWindowSize();
   const itemRef = useRef(null);
   const titleRef = useRef(null);
   const descRef = useRef(null);
@@ -126,7 +126,7 @@ const Case = ({ ...restProps }) => {
         autoAlpha: restProps?.isSelected ? 1 : 0,
       });
     }
-  }, [width, restProps?.isSelected]);
+  }, [windowSize.width, restProps?.isSelected]);
   return (
     <Styled.Case
       color={restProps?.item?.color}

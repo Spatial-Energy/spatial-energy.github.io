@@ -1,20 +1,18 @@
 import Image from "next/image";
+import { useContext } from "react";
+import { BaseContext, BaseContextType } from "u9/contexts/base";
 import * as Styled from "./Logo.styles";
-
-type MenuProps = {
-  isDark?: boolean;
-};
-
-const Logo = ({ ...props }: MenuProps) => {
-return (
-    <Styled.Wrapper href="./">
+const Logo = ({ ...props }) => {
+  const { isMenuDark }: BaseContextType = useContext(BaseContext);
+  return (
+    <Styled.Wrapper>
       <Styled.WrapperInner>
-      <Image
-        src={`./images/logo${props?.isDark ? '-dark' : ''}.svg`}
-        layout="fill"
-        objectFit="cover"
-        alt="Spatial energy logo"
-      />
+        <Image
+          src={`./images/logo${isMenuDark ? "-dark" : ""}.svg`}
+          layout="fill"
+          objectFit="cover"
+          alt="Spatial energy logo"
+        />
       </Styled.WrapperInner>
     </Styled.Wrapper>
   );
