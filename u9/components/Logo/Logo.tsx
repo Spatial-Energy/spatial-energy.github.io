@@ -5,7 +5,7 @@ import * as Styled from "./Logo.styles";
 const Logo = ({ ...props }) => {
   const { isMenuDark }: BaseContextType = useContext(BaseContext);
   return (
-    <Styled.Wrapper>
+    <Styled.Wrapper href="./">
       <Styled.WrapperInner>
         <Image
           src={`./images/logo${isMenuDark ? "-dark" : ""}.svg`}

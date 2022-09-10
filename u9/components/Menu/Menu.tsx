@@ -28,7 +28,6 @@ const Menu = ({ ...props }: MenuProps) => {
     gsap.to(menuLine2Ref.current, {transformOrigin: "center center", y: isMenuActive ? -5.5 : 0, rotate: isMenuActive ? -45 : 0, ease: isMenuActive ? "back.out" : "back.in" });
   }, [isMenuActive]);
   useEffect(() => {
-    console.log(windowSize.width);
     // prettier-ignore
     gsap.to(wrapperRoutesRef.current, { duration: 0, autoAlpha: isMenuActive ? 1 : windowSize.width > 768 ? 1 : 0 });
   }, [windowSize.width, isMenuActive]);
