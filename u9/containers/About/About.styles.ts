@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { colors, rfs } from "u9/utils/styles/theme";
 import { mediaCustom, pxToRems, setTypography } from "u9/utils/styles/mixin";
 
-
 export const Title = styled.div`
   ${setTypography("headline2")}
   ${rfs(`${pxToRems(244)}rem`, "padding-top")};
@@ -46,7 +45,7 @@ export const TopContent = styled.div`
   }
 
   >div: first-child {
-    ${setTypography("headline4")} 
+    ${setTypography("headline4")}
     width: 40%;
     ${mediaCustom(
       800,
@@ -117,41 +116,53 @@ export const CaseStudies = styled.div`
 `;
 
 export const Acc = styled.div`
-  
   ${rfs(`${pxToRems(129)}rem`, "margin-top")};
   ${rfs(`${pxToRems(184)}rem`, "margin-bottom")};
   border-radius: 30px;
   background-color: ${colors.pampas};
 
   >div: last-child {
-    border-bottom: unset;
     border-radius: 30px;
-    ${rfs(`${pxToRems(80)}rem`, "padding-bottom")};
   }
 `;
 
-export const Case = styled.div<{ color: string }>`
-    ${({ color }) => `background-color: ${color};`}
+export const Case = styled.div<{ color: string; isSelected: boolean }>`
+  ${({ color }) => `background-color: ${color};`}
+
+  /* width: 100%;
+  display: flex;
+  justify-content: space-between;
+  ${rfs(`${pxToRems(178)}rem`, "column-gap")};
+  ${rfs(`${pxToRems(70)}rem`, "padding-left")};
+  ${rfs(`${pxToRems(70)}rem`, "padding-right")};
+  ${rfs(`${pxToRems(80)}rem`, "padding-top")};
+  ${rfs(`${pxToRems(110)}rem`, "padding-bottom")}; */
+
+  
+  /* margin-top: -30px; */
+  border-radius: 30px 30px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  ${rfs(`${pxToRems(70)}rem`, "padding-left")};
+  ${rfs(`${pxToRems(70)}rem`, "padding-right")};
+  margin-top: -30px;
+  
+  > div: first-child {
+    
     width: 100%;
     display: flex;
     justify-content: space-between;
-    ${rfs(`${pxToRems(178)}rem`, "column-gap")};
-    ${rfs(`${pxToRems(70)}rem`, "padding-left")};
-    ${rfs(`${pxToRems(70)}rem`, "padding-right")};
-    ${rfs(`${pxToRems(80)}rem`, "padding-top")};
-    ${rfs(`${pxToRems(110)}rem`, "padding-bottom")};
-    
-    margin-top: -30px;  
+    ${rfs(`${pxToRems(80)}rem`, "column-gap")};
 
-    border-radius: 30px 30px 0 0;
-    
     ${mediaCustom(
       1024,
       `
-      flex-direction: column;
-      ${rfs(`${pxToRems(40)}rem`, "row-gap")};
-    `
+        flex-direction: column;
+        ${rfs(`${pxToRems(40)}rem`, "row-gap")};
+      `
     )}
+
     >div: nth-child(1) {
       display: flex;
       flex-direction: column;
@@ -163,6 +174,7 @@ export const Case = styled.div<{ color: string }>`
         ${setTypography("body2")}
         margin-top: 16px;
       }
+      ${({ isSelected }) => !isSelected && `cursor: pointer;`}
     }
     >div: nth-child(2) {
       position: relative;
@@ -180,4 +192,5 @@ export const Case = styled.div<{ color: string }>`
       )}
     }
   }
+  overflow: hidden;
 `;

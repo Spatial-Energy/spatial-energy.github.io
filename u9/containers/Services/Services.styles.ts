@@ -45,7 +45,7 @@ export const TopContent = styled.div`
   }
 
   >div: first-child {
-    ${setTypography("headline4")} 
+    ${setTypography("headline4")}
     width: 40%;
     ${mediaCustom(
       800,
@@ -56,7 +56,6 @@ export const TopContent = styled.div`
     )}
   }
 `;
-
 
 export const Acc = styled.div`
   ${rfs(`${pxToRems(70)}rem`, "padding-left")};
@@ -72,62 +71,54 @@ export const Acc = styled.div`
   }
 `;
 
-export const AccItem = styled.div<{ isSelected: boolean; height: number }>`
-  ${({ height }) => `height: ${height}px;`}
-
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-
-  ${rfs(`${pxToRems(178)}rem`, "column-gap")};
-
-  transition: height 0.3s ease-out, padding-top 0.3s ease-out,
-    padding-bottom 0.3s ease-out;
+export const AccItem = styled.div<{ isSelected: boolean }>`
   border-bottom: 1px solid ${colors.black}20;
-
-  ${({ isSelected }) =>
-    `${rfs(`${pxToRems(isSelected ? 80 : 0)}rem`, "padding-top")};`}
-  ${({ isSelected }) =>
-    `${rfs(`${pxToRems(isSelected ? 80 : 0)}rem`, "padding-bottom")};`}
-
-  ${mediaCustom(
-    1024,
-    `
-      flex-direction: column;
-      ${rfs(`${pxToRems(40)}rem`, "row-gap")};
-    `
-  )}
-  >div: nth-child(1) {
+  ${rfs(`${pxToRems(143)}rem`, "min-height")}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  >div: first-child {
+    width: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    ${({ isSelected }) => !isSelected && `cursor: pointer;`}
-    >div: nth-child(1) {
-      ${({ isSelected }) =>
-        `${rfs(`${pxToRems(isSelected ? 0 : 40)}rem`, "padding-top")};`}
-      ${setTypography("headline3")}
-      ${({ isSelected }) =>
-        `${rfs(`${pxToRems(isSelected ? 0 : 40)}rem`, "padding-bottom")};`}
-    }
-    >div: nth-child(2) {
-      ${setTypography("body2")}
-      margin-top: 16px;
-    }
-  }
-  >div: nth-child(2) {
-    position: relative;
-    ${rfs(`${pxToRems(730)}rem`, "width")};
-    ${rfs(`${pxToRems(620)}rem`, "height")};
-    flex-shrink: 0;
-    border-radius: 20px;
-    overflow: hidden;
+
+    ${rfs(`${pxToRems(178)}rem`, "column-gap")};
     ${mediaCustom(
       1024,
       `
+      flex-direction: column;
+      ${rfs(`${pxToRems(40)}rem`, "row-gap")};
+    `
+    )}
+
+    >div: nth-child(1) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      ${({ isSelected }) => !isSelected && `cursor: pointer;`}
+      >div: nth-child(1) {
+        ${setTypography("headline3")}
+      }
+      >div: nth-child(2) {
+        ${setTypography("body2")}
+        margin-top: 16px;
+      }
+    }
+    >div: nth-child(2) {
+      position: relative;
+      ${rfs(`${pxToRems(730)}rem`, "width")};
+      ${rfs(`${pxToRems(620)}rem`, "height")};
+      flex-shrink: 0;
+      border-radius: 20px;
+      overflow: hidden;
+      ${mediaCustom(
+        1024,
+        `
         width: 100%;
         ${rfs(`${pxToRems(730)}rem`, "height")};
       `
-    )}
+      )}
+    }
   }
   overflow: hidden;
 `;
@@ -154,10 +145,7 @@ export const HowWeWork = styled.div`
     >div: nth-child(even) {
       ${rfs(`${pxToRems(160)}rem`, "margin-top")};
     }
-    >div: nth-child(n + 3) {
-      opacity: 0.5;
-    }
-
+    
     > div {
       display: flex;
       flex-direction: column;

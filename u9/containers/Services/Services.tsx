@@ -7,6 +7,7 @@ import Footer from "../Footer/Footer";
 import * as Styled from "./Services.styles";
 import { gsap } from "gsap/dist/gsap";
 import useWindowSize from "u9/utils/hooks/useWindowSize";
+import useIsomorphicLayoutEffect from "u9/utils/hooks/useIsomorphicLayoutEffect";
 
 const Services = () => {
   const { setMenuDark }: BaseContextType = useContext(BaseContext);
@@ -79,6 +80,7 @@ const Services = () => {
         description:
           "Nullam vulputate gravida enim, et tincidunt augue condimentum at. Nullam ultricies felis nisl, vitae pellen venenatis quis. Vitae vestibulum arcu, a semper metus nullam placerat.",
         image: "./images/services-phase-3.png",
+        opacity: 0.5,
       },
       {
         phase: "Phase 4",
@@ -86,6 +88,7 @@ const Services = () => {
         description:
           "Nullam vulputate gravida enim, et tincidunt augue condimentum at. Nullam ultricies felis nisl, vitae pellen venenatis quis. Vitae vestibulum arcu, a semper metus nullam placerat.",
         image: "./images/services-phase-4.png",
+        opacity: 0.5,
       },
     ],
   };
@@ -129,7 +132,7 @@ const Services = () => {
             <div>How we Work</div>
             <div>
               {data.phases.map((item, index) => (
-                <div key={index}>
+                <div key={index} style={{ opacity: item.opacity }}>
                   <div>{item.phase}</div>
                   <div>{item.title}</div>
                   <div>{item.description}</div>
@@ -160,35 +163,26 @@ const AccItem = ({ ...restProps }) => {
   const titleRef = useRef(null);
   const descRef = useRef(null);
   const imageRef = useRef(null);
-  const [height, setHeight] = useState(0);
-  useEffect(() => {
-    resize();
-    setTimeout(() => {
-      resize();
-    }, 300);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [width, titleRef, restProps?.isSelected, itemRef, descRef, imageRef]);
-
-  const resize = () => {
-    if (restProps?.isSelected && itemRef.current) {
-      // @ts-ignore
-      setHeight(itemRef.current.scrollHeight);
-    }
-    if (!restProps?.isSelected && titleRef.current) {
-      // @ts-ignore
-      setHeight(titleRef.current.scrollHeight);
-    }
-    if (descRef.current) {
-      gsap.to(descRef.current, {
+  useIsomorphicLayoutEffect(() => {
+    if (itemRef.current) {
+      gsap.to(itemRef?.current, {
+        // @ts-ignore
+        height: restProps?.isSelected
+          // @ts-ignore
+          ? itemRef.current.scrollHeight
+          // @ts-ignore
+          : titleRef.current.clientHeight,
+        marginTop: 40,
+        marginBottom: 40,
+      });
+      gsap.to(descRef?.current, {
+        autoAlpha: restProps?.isSelected ? 1 : 0,
+      });
+      gsap.to(imageRef?.current, {
         autoAlpha: restProps?.isSelected ? 1 : 0,
       });
     }
-    if (imageRef.current) {
-      gsap.to(imageRef.current, {
-        autoAlpha: restProps?.isSelected ? 1 : 0,
-      });
-    }
-  };
+  }, [width, restProps?.isSelected]);
 
   return (
     <Styled.AccItem
@@ -196,21 +190,21 @@ const AccItem = ({ ...restProps }) => {
         restProps?.onClick();
       }}
       isSelected={restProps?.isSelected}
-      ref={itemRef}
-      height={height}
     >
-      <div>
-        <div ref={titleRef}>{restProps?.item?.title}</div>
-        <div ref={descRef}>{restProps?.item?.description}</div>
-      </div>
-      <div ref={imageRef}>
+      <div ref={itemRef}>
         <div>
-          <Image
-            src={restProps?.item?.image}
-            layout="fill"
-            objectFit="cover"
-            alt=""
-          />
+          <div ref={titleRef}>{restProps?.item?.title}</div>
+          <div ref={descRef}>{restProps?.item?.description}</div>
+        </div>
+        <div ref={imageRef}>
+          <div>
+            <Image
+              src={restProps?.item?.image}
+              layout="fill"
+              objectFit="cover"
+              alt=""
+            />
+          </div>
         </div>
       </div>
     </Styled.AccItem>
