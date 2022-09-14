@@ -1,0 +1,1 @@
+export { default } from 'u9/containers/About/About';
