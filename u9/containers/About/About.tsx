@@ -22,21 +22,23 @@ const About: NextPage = () => {
   const data = [
     {
       title: "Energy Open Piazza",
-      description: `An Energy Modelling tool that enables rapid assessment of solar energy generation and storage.`,
-      image: "./images/case-study-energy-open-piazza.png",
+      description: "Energy Open Piazza (EOP) is a digital platform that allows users to simulate and analyse building portfolios' energy consumption. With EOP we can look at the potential economic savings and reduction of carbon emissions introduced by solar generation, energy storage and smart EV charging and compile the business plans needed to implement energy transformations. This project received support from the Power Forward Challenge grant, funded by the UK Government Dept. BEIS and Natural Resources Canada",
+      image: "./images/case-study-energy-open-piazza.jpg",
       color: colors.mystic,
     },
+  ];
+  const backupData = [
     {
       title: "Change Management",
       description:
-        "Ci-iT is a knowledge management tool for construction that helps project teams efficiently respond to changes in building programmes.",
+        "Ci-iT is a knowledge management tool for construction that helps project teams efficiently respond to changes in building programmes. Ci-iT is a knowledge management tool for construction that helps project teams efficiently respond to changes in building programmes. Ci-iT is a knowledge management tool for construction that helps project teams efficiently respond to changes in building programmes.",
       image: "./images/case-study-change-management.png",
       color: colors.moonMist,
     },
     {
       title: "iTwin",
       description: "Digital twin XR App on Hololens-2 headset",
-      image: "./images/case-study-itwin.jpg",
+      image: "./images/case-study-itwin.png",
       color: colors.snuff,
     },
   ];
@@ -52,7 +54,7 @@ const About: NextPage = () => {
           <Styled.TopContent>
             <div>We Research, Analyze & consult</div>
             <div>
-              <div>Construction & Real ESTATE INDUSTRY</div>
+              <div>supporting the construction and real estate industry</div>
               <div>
                 Spatial Energy is a research, data science, and tech consultancy
                 that specialises in building solutions for complex problems for

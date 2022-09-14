@@ -18,77 +18,74 @@ const Services = () => {
   const data = {
     acc: [
       {
-        title: "Digital Twin",
-        description: `A digital twin is a virtual representation that serves as the
-      real-time digital counterpart of a physical object or process.
-      Though the concept originated earlier (attributed to Michael
-      Grieves, then of the University of Michigan, in 2002) the first
-      practical definition of a digital twin originated from NASA in
-      an attempt to improve physical-model simulation of spacecraft in
-      2010.`,
+        title: "Desktop Appraisals",
+        description:
+          "We are capable of delivering accurate appraisals for real estate asset portfolios faster and at a lower cost than traditional solutions. Investors with real estate portfolios have used our solution Energy Open Piazza (EOP) to quickly create scenarios and assess benefits of energy transformation projects. Using vetted localised data sources (such as pricing and carbon intensity of the grid) applied to available building details (such as bills, consumption datasets and construction type), we generate results in a fast, accurate, regulatory-compliant valuation, producing a detailed business case ready for investment.",
+        image: "./images/services-desktop-appraisal.png",
+      },
+      {
+        title: "Digital Twins",
+        description: 
+          "We deliver bespoke Digital Twins solutions capable of representing the underlying physical energy assets in a defined real context. Our Digital Twins help companies improve planning and specifications, operational efficiency and use of energy. They also offer a way to stress-test important assets and systems in preparation for a wide range of scenarios, including severe weather episodes and or spike in energy pricing.",
         image: "./images/services-digital-twin.png",
       },
       {
-        title: "VR, MR & AR",
+        title: "Internet of Things (IoT)",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida congue velit sit amet lacinia. Nam diam enim, tincidunt ut sapien at, porta tempus nisl. Curabitur finibus dui lectus, ut mollis libero pharetra id. In id accumsan enim, non aliquet massa. Sed euismod purus ut luctus faucibus. Sed varius orci magna, et porta ligula porta id. Fusce sit amet interdum neque.",
-        image: "./images/services-vr-mr-ar.png",
+          "We integrate vertical solutions provided by technical partners into a holistic single platform capable of monitoring and reporting on optimisations for HVAC systems and heat pumps, smart lighting, solar PV generation and efficient use of energy with static energy storage. The effectiveness of IoT solutions lies in the creation of ecosystems capable of collecting, analysing, and processing data from a variety of different devices. Our solution breaks the usual structure of vertical silos and finds efficiencies inherent to interoperability.",
+        image: "./images/services-iot.png",
       },
       {
         title: "Metaverse",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida congue velit sit amet lacinia. Nam diam enim, tincidunt ut sapien at, porta tempus nisl. Curabitur finibus dui lectus, ut mollis libero pharetra id. In id accumsan enim, non aliquet massa. Sed euismod purus ut luctus faucibus. Sed varius orci magna, et porta ligula porta id. Fusce sit amet interdum neque.",
+          "We leverage the latest technologies to integrate digital twin simulations and datasets from sensors into 3D representations that help visualise complex and possibly remote systems in an accessible way. Metaverse solutions really help bringing people together for real-time collaboration, getting acquainted with environments that are in remote locations, building the knowledge needed to understand and execute changes and optimisations of processes that are hard to understand when experienced first person.",
         image: "./images/services-metaverse.png",
       },
       {
-        title: "Desktop Appraisal",
+        title: "Virtual, Mixed & Augmented Reality",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida congue velit sit amet lacinia. Nam diam enim, tincidunt ut sapien at, porta tempus nisl. Curabitur finibus dui lectus, ut mollis libero pharetra id. In id accumsan enim, non aliquet massa. Sed euismod purus ut luctus faucibus. Sed varius orci magna, et porta ligula porta id. Fusce sit amet interdum neque.",
-        image: "./images/services-desktop-appraisal.png",
+          "We are experts at creating immersive reality solutions that give a stronger sense of the dimensions, space and potential of the built assets than a traditional brochure or website or website. Use cases are multiple: remote immersive visualisation of residential and commercial properties; applications in the construction sector, where workers can access plans on-site using AR glasses, helping them get ahead of potential planning problems and reduce building waste; VR to test and visualise architectural plans and collaborate with multiple stakeholders in virtual environments, where users can tailor design features as the project develops.",
+        image: "./images/services-vr-mr-ar.png",
       },
       {
-        title: "IoT",
+        title: "Mobile Apps & Web Tools",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida congue velit sit amet lacinia. Nam diam enim, tincidunt ut sapien at, porta tempus nisl. Curabitur finibus dui lectus, ut mollis libero pharetra id. In id accumsan enim, non aliquet massa. Sed euismod purus ut luctus faucibus. Sed varius orci magna, et porta ligula porta id. Fusce sit amet interdum neque.",
-        image: "./images/services-iot.png",
-      },
-      {
-        title: "Mobile App & Web Tools",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida congue velit sit amet lacinia. Nam diam enim, tincidunt ut sapien at, porta tempus nisl. Curabitur finibus dui lectus, ut mollis libero pharetra id. In id accumsan enim, non aliquet massa. Sed euismod purus ut luctus faucibus. Sed varius orci magna, et porta ligula porta id. Fusce sit amet interdum neque.",
+          "Mobile and Web applications are still the bricks and mortar in digital infrastructure and we have years of experience delivering usable tools that maximise the business goals of an organisation. Whether it's a matter of optimising a customer funnel by bringing in the technologies needed to provide a smooth experience, or defining a breakthrough product through a design sprint that pinpoints the company strategy in a technological output, we can support the process from ideation through to delivery.",
         image: "./images/services-mobile-app-web-tools.png",
       },
     ],
     phases: [
       {
         phase: "Phase 1",
-        title: "Discovery",
+        title: "Strategise and Discovery",
         description:
-          "Nullam vulputate gravida enim, et tincidunt augue condimentum at. Nullam ultricies felis nisl, vitae pellen venenatis quis. Vitae vestibulum arcu, a semper metus nullam placerat.",
+          "During this phase we assess the technicalities, the creative treatment, the UX, the resources needed whilst collecting all the requirements for both the Proof of Concept (POC) and the full system. We offer a long term strategy to provide our client with a sustainable outcome.",
         image: "./images/services-phase-1.png",
+        opacity: 0.9,
       },
       {
         phase: "Phase 2",
         title: "Production of MVP",
         description:
-          "Nullam vulputate gravida enim, et tincidunt augue condimentum at. Nullam ultricies felis nisl, vitae pellen venenatis quis. Vitae vestibulum arcu, a semper metus nullam placerat.",
+          "Based on the POC requirement we gathered, we focus on developing a fully operational Minimum Viable Product (MVP)  in a confined environment. We deliver the MVP fully tested and ready for the scale-up phase.",
         image: "./images/services-phase-2.png",
+        opacity: 0.9,
       },
       {
         phase: "Phase 3",
-        title: "Validation & Reporting",
+        title: "Full Product Production",
         description:
-          "Nullam vulputate gravida enim, et tincidunt augue condimentum at. Nullam ultricies felis nisl, vitae pellen venenatis quis. Vitae vestibulum arcu, a semper metus nullam placerat.",
+          "After validating the MVP we focus on iterating features and developing a fully scalable solution. This is achieved by deploying and extensively testing the infrastructure. In this phase we implement all the features needed for the final solution.",
         image: "./images/services-phase-3.png",
-        opacity: 0.5,
+        opacity: 0.9,
       },
       {
         phase: "Phase 4",
-        title: "Final Solution",
+        title: "Product Release",
         description:
-          "Nullam vulputate gravida enim, et tincidunt augue condimentum at. Nullam ultricies felis nisl, vitae pellen venenatis quis. Vitae vestibulum arcu, a semper metus nullam placerat.",
+          "In this phase we release the final product, by guaranteeing a fully tested solution together with the support and documentation needed for handover. In this phase we deploy the final solution and provide support and maintenance.",
         image: "./images/services-phase-4.png",
-        opacity: 0.5,
+        opacity: 0.9,
       },
     ],
   };
@@ -102,9 +99,9 @@ const Services = () => {
           <Styled.Title>Services</Styled.Title>
           <Styled.Separator />
           <Styled.TopContent>
-            <div>We develop products</div>
+            <div>We bring innovation</div>
             <div>
-              <div>technologies + ART</div>
+              <div>through digital products</div>
               <div>
                 We have worked with international companies, helping them solve{" "}
                 <span>complex problems</span> with state of{" "}
