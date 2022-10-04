@@ -18,40 +18,34 @@ const Services = () => {
   const data = {
     acc: [
       {
-        title: "Desktop Appraisals",
+        title: "Leveraging Our Platform for Multi-channel Content",
         description:
-          "We are capable of delivering accurate appraisals for real estate asset portfolios faster and at a lower cost than traditional solutions. Investors with real estate portfolios have used our solution Energy Open Piazza (EOP) to quickly create scenarios and assess benefits of energy transformation projects. Using vetted localised data sources (such as pricing and carbon intensity of the grid) applied to available building details (such as bills, consumption datasets and construction type), we generate results in a fast, accurate, regulatory-compliant valuation, producing a detailed business case ready for investment.",
-        image: "./images/services-desktop-appraisal.png",
-      },
-      {
-        title: "Digital Twins",
-        description: 
-          "We deliver bespoke Digital Twins solutions capable of representing the underlying physical energy assets in a defined real context. Our Digital Twins help companies improve planning and specifications, operational efficiency and use of energy. They also offer a way to stress-test important assets and systems in preparation for a wide range of scenarios, including severe weather episodes and or spike in energy pricing.",
-        image: "./images/services-digital-twin.png",
-      },
-      {
-        title: "Internet of Things (IoT)",
-        description:
-          "We integrate vertical solutions provided by technical partners into a holistic single platform capable of monitoring and reporting on optimisations for HVAC systems and heat pumps, smart lighting, solar PV generation and efficient use of energy with static energy storage. The effectiveness of IoT solutions lies in the creation of ecosystems capable of collecting, analysing, and processing data from a variety of different devices. Our solution breaks the usual structure of vertical silos and finds efficiencies inherent to interoperability.",
-        image: "./images/services-iot.png",
-      },
-      {
-        title: "Metaverse",
-        description:
-          "We leverage the latest technologies to integrate digital twin simulations and datasets from sensors into 3D representations that help visualise complex and possibly remote systems in an accessible way. Metaverse solutions really help bringing people together for real-time collaboration, getting acquainted with environments that are in remote locations, building the knowledge needed to understand and execute changes and optimisations of processes that are hard to understand when experienced first person.",
-        image: "./images/services-metaverse.png",
-      },
-      {
-        title: "Virtual, Mixed & Augmented Reality",
-        description:
-          "We are experts at creating immersive reality solutions that give a stronger sense of the dimensions, space and potential of the built assets than a traditional brochure or website or website. Use cases are multiple: remote immersive visualisation of residential and commercial properties; applications in the construction sector, where workers can access plans on-site using AR glasses, helping them get ahead of potential planning problems and reduce building waste; VR to test and visualise architectural plans and collaborate with multiple stakeholders in virtual environments, where users can tailor design features as the project develops.",
+          "We have developed a software infrastructure capable of analysing benefits of transformative energy solutions in the commercial and residential market. We provide API tools and skills to make it simple to integrate with any front-end, opening to countless possible use cases: integration with web portals for data analysis and consumption; live data visualisation of energy assets; applications in the construction sector with potential integrations with VR / AR headsets; real-time collaboration across multiple stakeholders in virtual environments. Our platform provides a simple and effective set of tools that allow to understand and plan the necessary investments to transform a property into an energy efficient and low-carbon asset.",
         image: "./images/services-vr-mr-ar.png",
       },
       {
-        title: "Mobile Apps & Web Tools",
+        title: "Energy Transformation Modelling for Real-Estate ",
         description:
-          "Mobile and Web applications are still the bricks and mortar in digital infrastructure and we have years of experience delivering usable tools that maximise the business goals of an organisation. Whether it's a matter of optimising a customer funnel by bringing in the technologies needed to provide a smooth experience, or defining a breakthrough product through a design sprint that pinpoints the company strategy in a technological output, we can support the process from ideation through to delivery.",
+          "We are capable of delivering accurate appraisals for real estate asset portfolios faster and at a lower cost than traditional solutions. Investors with real estate portfolios have used our solution Energy Open Piazza (EOP) to quickly create scenarios and assess benefits of energy transformation projects. Using vetted localised data sources (such as weather information, energy pricing and carbon intensity of the grid) applied to available building details (such as bills, consumption datasets and construction type), we assess feasibility of solar PV generation, energy storage and EV charging infrastructure in a fast, accurate, regulatory-compliant valuation, producing a detailed business case ready for investment.",
+        image: "./images/services-desktop-appraisal.png",
+      },
+      {
+        title: "Energy Assets Simulations",
+        description: 
+          "We deliver bespoke Digital Twins solutions capable of representing the underlying physical energy assets in a defined real context. Our Digital Twins reproduce the behaviour of buildings, solar PV, energy storage, EV charging infrastructure and many other assets to help companies improve planning and specifications, operational efficiency and use of energy. They also offer a way to stress-test important assets and systems in preparation for a wide range of scenarios, including severe weather episodes and or spike in energy pricing.",
+        image: "./images/services-digital-twin.png",
+      },
+      {
+        title: "Mobile Apps and Web Platforms Integration",
+        description:
+          "Mobile and Web applications are the bricks and mortar in digital infrastructure and we have years of experience delivering usable tools that maximise the business goals of an organisation. Our platform provides the tools to integrate data and algorithms in 3rd party digital solutions, such as real-estate web portals, and we have the skills to support the process such integration, whether it's a matter of optimising a customer funnel by bringing in the technologies needed to provide a smooth experience end-users, or defining a breakthrough product through a design sprint that pinpoints the company strategy in a technological output.",
         image: "./images/services-mobile-app-web-tools.png",
+      },
+      {
+        title: "Internet of Things (IoT) Integration",
+        description:
+          "We offer a developer-friendly API that can integrate vertical solutions provided by technical partners into a holistic single platform capable of monitoring and reporting on optimisations for HVAC systems and heat pumps, smart lighting, solar PV generation and efficient use of energy with static energy storage. The effectiveness of IoT solutions lies in the creation of ecosystems capable of collecting, analysing, and processing data from a variety of different devices. Our solution breaks the usual structure of vertical silos and finds efficiencies inherent to interoperability.",
+        image: "./images/services-iot.png",
       },
     ],
     phases: [
@@ -105,7 +99,7 @@ const Services = () => {
               <div>
                 We have worked with international companies, helping them solve{" "}
                 <span>complex problems</span> with state of{" "}
-                <span>the art technologies</span>, such as:
+                <span>the art technologies</span>.
               </div>
             </div>
           </Styled.TopContent>

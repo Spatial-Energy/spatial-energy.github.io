@@ -21,9 +21,33 @@ const About: NextPage = () => {
 
   const data = [
     {
-      title: "Energy Open Piazza",
-      description: "Energy Open Piazza (EOP) is a digital platform that allows users to simulate and analyse building portfolios' energy consumption. With EOP we can look at the potential economic savings and reduction of carbon emissions introduced by solar generation, energy storage and smart EV charging and compile the business plans needed to implement energy transformations. This project received support from the Power Forward Challenge grant, funded by the UK Government Dept. BEIS and Natural Resources Canada",
-      image: "./images/case-study-energy-open-piazza.jpg",
+      title: "Dept. for Work and Pensions",
+      description: "Automation of analysis for 700 buildings, quickly identifying which presented the biggest potential of savings. We helped DWP avoid long and expensive trips to all locations and allowed them to make informed decisions, pinpointing the biggest inefficiencies and prioritising investments. We have achieved this in a matter of a few days correlating weather data with consumption to find big spenders and take action, selecting the less performant buildings where energy transformation investments would make the biggest difference/impact.",
+      image: "",
+      color: colors.mystic,
+    },
+    {
+      title: "Natwest",
+      description: "Analysis of potential energy arbitrage when using energy storage in conjunction with data-centres backup systems for uninterrupted power supply. We have generated scenarios that helped Natwast understand the value of introducing energy storage as back-up systems for their data centres, allowing them to make an informed choice if to switch from diesel back-up generation to greener solutions. We showed the potential for cost reduction and greener grid imports with the adoption of dynamic tariffs and revenue staking, so that solar PV supported by storage would not only be environmentally friendly but also generate additional streams of revenues through flexibility services.",
+      image: "",
+      color: colors.moonMist,
+    },
+    {
+      title: "Skanska",
+      description: "Simulation of consumption for large residential building blocks in support of correct dimensioning of EV charging infrastructure and energy storage devices. We have supported Skanska at design and planning stages assessing the value of correctly dimensioned EV charging infrastructure and helped them understand potential benefits when operated in conjunction with energy storage, particularly where demand charges are high, limited interconnection are in place, and where EV charging can be an additional source of revenues.",
+      image: "",
+      color: colors.snuff,
+    },
+    {
+      title: "Avison Young",
+      description: "Analysis of tariffs and energy consumption with weather correlation to identify potential for costs reduction and installation of solar PV. We have provided ground-truth knowledge that eventually led to investments for 6 schools in Kent, with the goal of demonstrating the validity of the business model that can then scale up at national level. Our models have generated simulations of solar PV generation and energy storage, demonstrating 5 years payback time and IRR 25% over the asset lifecycle achieved by average 400kwp solar PV generation paired with average 300kw / 2h static storage solutions.",
+      image: "",
+      color: colors.cararra,
+    },
+    {
+      title: "Cambridge Ivanhoe",
+      description: "Analysis of consumption for shopping centres and definition of a business plan for deployment of solar PV and EV charging infrastructure integrated with the existing network of sensors. We have studied the client’s data producing a report that demonstrates how energy storage can support the system at peak times, containing demand charges and potentially generating revenues through grid services. The reports gives a detailed breakdown of scenarios where optimal breakeven between increasing demand charges and cost of infrastructure is found.",
+      image: "",
       color: colors.mystic,
     },
   ];

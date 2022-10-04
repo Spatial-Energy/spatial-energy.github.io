@@ -47,7 +47,8 @@ const Home: NextPage = () => {
         <WrapperInner>
           <Styled.WrapperLabel visible={visible}>
             <Styled.Label ref={labelRef}>
-              The Innovation Lab for the Real-Estate Industry
+              We help the real-estate industry embracing the future of energy transformation
+              {/* The Innovation Lab for the Real-Estate Industry */}
             </Styled.Label>
           </Styled.WrapperLabel>
         </WrapperInner>
