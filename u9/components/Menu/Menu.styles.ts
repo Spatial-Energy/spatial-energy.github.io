@@ -5,6 +5,7 @@ import { mediaCustom, pxToRems } from "u9/utils/styles/mixin";
 export const Wrapper = styled.div`
   position: absolute;
   width: 100%;
+  z-index: 10;
 `;
 
 export const WrapperLogo = styled.a`
