@@ -41,7 +41,7 @@ const Home: NextPage = () => {
     <>
       <Head title="Home" />
       <Wrapper>
-        <Styled.Video autoPlay muted loop>
+        <Styled.Video autoPlay muted loop playsInline>
           <source src={"./bg.mp4"} type="video/mp4" />
         </Styled.Video>
         <WrapperInner>
